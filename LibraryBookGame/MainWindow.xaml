@@ -4,8 +4,66 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryBookGame"
-        mc:Ignorable="d" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        xmlns:viewModel="clr-namespace:LibraryBookGame.MVVM.ViewModel"
+        mc:Ignorable="d" 
+        Height="600" Width="920"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True">
+
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+
+
+    <Border Background="#A0BFE2" CornerRadius="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Book Sorter"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Foreground="White"
+                   FontSize="30"
+                   Margin="20,0,0,0" />
+
+            
+            <StackPanel Grid.Row="1">
+
+                <RadioButton Content="Replacing Books"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14" 
+                             Style="{StaticResource MenuButtonTheme}"/>
+                
+                <RadioButton Content="Identifying Areas"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14" 
+                             Style="{StaticResource MenuButtonTheme}"/>
+                
+                <RadioButton Content="Finding Call Numbers"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14" 
+                             Style="{StaticResource MenuButtonTheme}"/>
+
+            </StackPanel>
+
+            <ContentControl Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="10"
+                            Content="{Binding CurrentView}"/>
+        </Grid>
+    </Border>
 </Window>
