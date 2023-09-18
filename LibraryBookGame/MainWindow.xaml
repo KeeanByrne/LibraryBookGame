@@ -10,7 +10,8 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
-        AllowsTransparency="True">
+        AllowsTransparency="True"
+         WindowStartupLocation="CenterScreen">
 
 
     <Window.DataContext>
@@ -18,7 +19,7 @@
     </Window.DataContext>
 
 
-    <Border Background="#A0BFE2" CornerRadius="20">
+    <Border Background="#A0BFE2" CornerRadius="50">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200" />
@@ -44,13 +45,16 @@
                              Height="50"
                              Foreground="White"
                              FontSize="14" 
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="True"
+                             Command="{Binding ReplacingBooksCommand}"/>
                 
                 <RadioButton Content="Identifying Areas"
                              Height="50"
                              Foreground="White"
                              FontSize="14" 
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding IdentifyingAreasCommand}"/>
                 
                 <RadioButton Content="Finding Call Numbers"
                              Height="50"

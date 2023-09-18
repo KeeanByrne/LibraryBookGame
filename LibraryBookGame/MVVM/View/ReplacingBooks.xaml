@@ -21,8 +21,40 @@
                     BorderThickness="5"
                     BorderBrush="Black">
 
-               
-            </Border>
+            <Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#A0BFE2" Height="300" Width="500">
+
+                    <StackPanel>
+                        <!--Buttons for Replacing Books-->
+                    <Button x:Name="StartButton" Content="Start" Width="100" Height="30" Click="StartButton_Click" Margin="20,30,20,10" Background="#C1E1C1"/>
+                    <Button x:Name="SortButton" Content="Sort" Width="100" Height="30" Click="SortButton_Click" IsEnabled="False" Background="#C1E1C1" />
+                    <Button x:Name="RestartButton" Content="Restart" Width="100" Height="30" Click="RestartButton_Click" Background="#C1E1C1" Margin="20,10,20,10" />
+                    <Label x:Name="ScoreLabel" Content="Score: 0" HorizontalAlignment="Center"/>
+
+                    </StackPanel>
+                    
+                    
+                    <!--Listbox for displaying generated unsorted call numbers-->
+                    <ListBox x:Name="CallNumbersListBox" Width="150" Height="240" Background="Aquamarine"
+                             PreviewMouseMove="ListBoxItem_PreviewMouseMove"
+                             DragOver="CallNumbersListBox_DragOver"
+                             Drop="CallNumbersListBox_Drop">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <EventSetter Event="PreviewMouseMove" Handler="ListBoxItem_PreviewMouseMove" />
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                    </ListBox>
+
+                    <!--Listbox for user to drop sorted call numbers-->
+                    <ListBox x:Name="UserSortingListBox" Width="150" Height="240" Margin="10,0,0,0" Background="Aquamarine"
+                             AllowDrop="True"
+                             PreviewMouseLeftButtonDown="UserSortingListBox_PreviewMouseLeftButtonDown"
+                             Drop="UserSortingListBox_Drop"/>
+
+                </StackPanel>
+            </Grid>
+        </Border>
         
     </StackPanel>
 </UserControl>

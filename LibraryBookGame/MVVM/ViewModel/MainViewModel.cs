@@ -10,8 +10,14 @@ namespace LibraryBookGame.MVVM.ViewModel
     class MainViewModel : ObservableObject
     {
 
+        public  RelayCommand ReplacingBooksCommand { get; set; }
+        public RelayCommand IdentifyingAreasCommand { get; set; }
+
+
 
         public ReplacingBooksViewModel ReplacingBooksVM { get; set; }
+
+        public IdentifyingAreasViewModel IdentifyingAreasVM { get; set; }
 
         private object _currentView;
 
@@ -28,7 +34,22 @@ namespace LibraryBookGame.MVVM.ViewModel
         public MainViewModel()
         {
             ReplacingBooksVM = new ReplacingBooksViewModel();
+            IdentifyingAreasVM = new IdentifyingAreasViewModel();
             CurrentView = ReplacingBooksVM;
+
+            ReplacingBooksCommand = new RelayCommand(o =>
+            {
+
+                CurrentView = ReplacingBooksVM;
+
+            });
+
+            IdentifyingAreasCommand = new RelayCommand(o =>
+            {
+
+                CurrentView = IdentifyingAreasVM;
+
+            });
 
         }
 

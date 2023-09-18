@@ -69,6 +69,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\View\IdentifyingAreas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\ReplacingBooks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -79,8 +83,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\ViewModel\IdentifyingAreasViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\ViewModel\ReplacingBooksViewModel.cs" />
+    <Compile Include="MVVM\View\IdentifyingAreas.xaml.cs">
+      <DependentUpon>IdentifyingAreas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\ReplacingBooks.xaml.cs">
       <DependentUpon>ReplacingBooks.xaml</DependentUpon>
     </Compile>
