@@ -27,7 +27,7 @@
 
                         <!--Buttons for Replacing Books-->
                         <Button x:Name="StartButton" Content="Start" Width="100" Height="30" Click="StartButton_Click" Margin="20,30,20,10" Background="#C1E1C1" Style="{DynamicResource RoundButton}"/>
-                        <Button x:Name="SortButton" Content="Sort" Width="100" Height="30" Click="SortButton_Click" IsEnabled="False" Background="#C1E1C1" Style="{DynamicResource RoundButton}" />
+                        <Button x:Name="SortButton" Content="Done" Width="100" Height="30" Click="SortButton_Click" IsEnabled="False" Background="#C1E1C1" Style="{DynamicResource RoundButton}" />
                         <Button x:Name="RestartButton" Content="Restart" Width="100" Height="30" Click="RestartButton_Click" Background="#C1E1C1" Margin="20,10,20,10" Style="{DynamicResource RoundButton}" />
                         <Label x:Name="ScoreLabel" Content="Score: 0" HorizontalAlignment="Center"/>
                     </StackPanel>

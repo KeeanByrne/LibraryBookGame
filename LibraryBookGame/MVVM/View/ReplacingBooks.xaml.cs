@@ -24,7 +24,7 @@ namespace LibraryBookGame.MVVM.View
         private List<string> draggedItems = null;
         private int score = 0;
         private ListBoxItem draggedItem = null;
-        private int nextDropIndex = 0; // Keeps track of the next position to drop a call number
+        private HashSet<string> droppedCallNumbers = new HashSet<string>();
         private Random random = new Random();
 
         public ReplacingBooks()
@@ -105,8 +105,6 @@ namespace LibraryBookGame.MVVM.View
             CallNumbersListBox.PreviewMouseLeftButtonDown += UserSortingListBox_PreviewMouseLeftButtonDown;
             CallNumbersListBox.Drop += CallNumbersListBox_Drop;
 
-            // Reset the nextDropIndex to start from the beginning
-            nextDropIndex = 0; // Reset to 0 for a new sorting operation
 
         }
 
@@ -115,16 +113,46 @@ namespace LibraryBookGame.MVVM.View
             // Check if the call numbers are sorted in ascending order
             bool isSorted = IsSorted(callNumbers);
 
-            // Update the score based on sorting correctness
-            score = isSorted ? 100 : 0;
+            // Calculate the score based on sorting correctness
+            int correctPlacements = CalculateCorrectPlacements(UserSortingListBox);
+            score = isSorted ? (correctPlacements * 10) : 0;
+
+            // Update the score label
             ScoreLabel.Content = $"Score: {score}%";
+        }
+
+        private int CalculateCorrectPlacements(ListBox listBox)
+        {
+            int correctPlacements = 0;
+            List<string> sortedList = new List<string>();
+            foreach (var item in listBox.Items)
+            {
+                sortedList.Add(item.ToString());
+            }
+
+            // Loop to check if sorting is in ascending order and count correct placements
+            for (int i = 0; i < sortedList.Count - 1; i++)
+            {
+                if (string.Compare(sortedList[i], sortedList[i + 1], StringComparison.Ordinal) <= 0)
+                {
+                    correctPlacements++;
+                }
+            }
+            return correctPlacements;
         }
 
         private bool IsSorted(List<string> list)
         {
-            for (int i = 0; i < list.Count - 1; i++)
+            List<string> sortedList = new List<string>();
+            foreach (var item in UserSortingListBox.Items)
             {
-                if (string.Compare(list[i], list[i + 1], StringComparison.Ordinal) > 0)
+                sortedList.Add(item.ToString());
+            }
+
+            // Logic to check if sorting is in ascending order
+            for (int i = 0; i < sortedList.Count - 1; i++)
+            {
+                if (string.Compare(sortedList[i], sortedList[i + 1], StringComparison.Ordinal) > 0)
                 {
                     return false;
                 }
@@ -140,6 +168,9 @@ namespace LibraryBookGame.MVVM.View
 
             // Clear the ListBox
             CallNumbersListBox.Items.Clear();
+
+            // Clear the UserSortingListBox
+            UserSortingListBox.Items.Clear();
 
             // Disable the Sort and Restart buttons
             SortButton.IsEnabled = false;
@@ -185,17 +216,24 @@ namespace LibraryBookGame.MVVM.View
 
                     if (selectedIndex >= 0)
                     {
-                        callNumbers.RemoveAt(selectedIndex);
-                        callNumbers.Insert(targetIndex, (string)e.Data.GetData(typeof(string)));
-                        DisplayCallNumbers();
+                        string droppedCallNumber = (string)e.Data.GetData(typeof(string));
+
+                        // Check if the call number has already been dropped
+                        if (!droppedCallNumbers.Contains(droppedCallNumber))
+                        {
+                            callNumbers.RemoveAt(selectedIndex);
+                            callNumbers.Insert(targetIndex, droppedCallNumber);
+                            DisplayCallNumbers();
+
+                            // Add the call number to the set of dropped call numbers
+                            droppedCallNumbers.Add(droppedCallNumber);
+                        }
                     }
                 }
 
                 draggedItem = null;
             }
         }
-
-        //Here new text Box
 
         private void UserSortingListBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
