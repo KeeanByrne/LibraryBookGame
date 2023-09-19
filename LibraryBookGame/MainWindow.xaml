@@ -11,7 +11,7 @@
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True"
-         WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen">
 
 
     <Window.DataContext>
@@ -19,7 +19,7 @@
     </Window.DataContext>
 
 
-    <Border Background="#A0BFE2" CornerRadius="50">
+    <Border Background="#A0BFE2" CornerRadius="50" BorderBrush="Black" BorderThickness="5">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200" />

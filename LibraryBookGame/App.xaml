@@ -9,7 +9,10 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/MenuButtonTheme.xaml" />
+                <ResourceDictionary Source="Theme/RoundedButton.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+           
 
             <DataTemplate DataType="{x:Type viewModel:ReplacingBooksViewModel}">
                 <view:ReplacingBooks/>
