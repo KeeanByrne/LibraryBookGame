@@ -15,6 +15,13 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace LibraryBookGame.MVVM.View
+
+    //Add feature to tell User which callNumber is in the incorrect position.
+
+    //Also make feature that when start button is clicked pop up shows up explaining how the game works
+
+    //Reset pop up asking if the user is sure they want to reset the game
+
 {
     
     public partial class ReplacingBooks : UserControl
