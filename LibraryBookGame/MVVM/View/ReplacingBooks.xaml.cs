@@ -18,12 +18,12 @@ namespace LibraryBookGame.MVVM.View
 
     //Add feature to tell User which callNumber is in the incorrect position.
 
-    //Also make feature that when start button is clicked pop up shows up explaining how the game works
+    //Also make how to play button. 
 
-    //Reset pop up asking if the user is sure they want to reset the game
+    //Reset pop up asking if the user is sure they want to restart the game
 
 {
-    
+   
     public partial class ReplacingBooks : UserControl
     {
 
@@ -96,7 +96,7 @@ namespace LibraryBookGame.MVVM.View
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            
+
             // Method call to generate 10 random call numbers
             GenerateCallNumbers();
 
@@ -111,7 +111,6 @@ namespace LibraryBookGame.MVVM.View
             CallNumbersListBox.AllowDrop = true;
             CallNumbersListBox.PreviewMouseLeftButtonDown += UserSortingListBox_PreviewMouseLeftButtonDown;
             CallNumbersListBox.Drop += CallNumbersListBox_Drop;
-
 
         }
 
@@ -169,7 +168,7 @@ namespace LibraryBookGame.MVVM.View
 
         private void RestartButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Are you sure you want to restart?", "Restart Game", MessageBoxButton.YesNoCancel, MessageBoxImage.Information);
             // Clear call numbers
             callNumbers.Clear();
 
@@ -269,6 +268,12 @@ namespace LibraryBookGame.MVVM.View
                 }
             }
         }
-        
+
+        private void HowToPlayButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("10 Random Call Numbers will be generated for you to sort in ASCENDING ORDER. Drag and drop them from the box on the left to the box on the right", "Start Game",
+            MessageBoxButton.OK, MessageBoxImage.Information);
+
+        }
     }
 }
