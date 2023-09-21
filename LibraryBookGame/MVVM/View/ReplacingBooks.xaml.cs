@@ -168,23 +168,29 @@ namespace LibraryBookGame.MVVM.View
 
         private void RestartButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Are you sure you want to restart?", "Restart Game", MessageBoxButton.YesNoCancel, MessageBoxImage.Information);
-            // Clear call numbers
-            callNumbers.Clear();
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to restart?", "Restart Game", MessageBoxButton.YesNo);
 
-            // Clear the ListBox
-            CallNumbersListBox.Items.Clear();
+            //If Yes selected then both ListBoxs are cleared. If no is selected, nothing is cleared from either list box
 
-            // Clear the UserSortingListBox
-            UserSortingListBox.Items.Clear();
+            if(result == MessageBoxResult.Yes)
+            {
+                // Clear call numbers
+                callNumbers.Clear();
 
-            // Disable the Sort and Restart buttons
-            SortButton.IsEnabled = false;
-            RestartButton.IsEnabled = false;
+                // Clear the ListBox
+                CallNumbersListBox.Items.Clear();
 
-            // Clear and disable the score label
-            ScoreLabel.Content = "";
+                // Clear the UserSortingListBox
+                UserSortingListBox.Items.Clear();
 
+                // Disable the Sort and Restart buttons
+                SortButton.IsEnabled = false;
+                RestartButton.IsEnabled = false;
+
+                // Clear and disable the score label
+                ScoreLabel.Content = "";
+            }
+           
         }
 
         private void ListBoxItem_PreviewMouseMove(object sender, MouseEventArgs e)
@@ -272,7 +278,7 @@ namespace LibraryBookGame.MVVM.View
         private void HowToPlayButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("10 Random Call Numbers will be generated for you to sort in ASCENDING ORDER. Drag and drop them from the box on the left to the box on the right", "Start Game",
-            MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBoxButton.OK);
 
         }
     }

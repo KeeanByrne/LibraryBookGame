@@ -11,7 +11,7 @@
     
     
     <StackPanel>
-        <TextBlock Text="Replacing Books"
+        <TextBlock Text="Identifying Areas"
                    Foreground="White"
                    FontSize="28"
                    HorizontalAlignment="Center"
