@@ -22,6 +22,11 @@ namespace LibraryBookGame.MVVM.View
 
     //Reset pop up asking if the user is sure they want to restart the game
 
+    //Add timer feature for gamification
+
+
+    //Call Numbers are disappearing in the callNumbers list Box. 
+
 {
    
     public partial class ReplacingBooks : UserControl

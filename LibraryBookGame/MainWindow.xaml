@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LibraryBookGame"
         xmlns:viewModel="clr-namespace:LibraryBookGame.MVVM.ViewModel"
         mc:Ignorable="d" 
-        Height="600" Width="920"
+        Height="600" Width="950"
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
@@ -19,7 +19,7 @@
     </Window.DataContext>
 
 
-    <Border Background="#16697A" CornerRadius="50" BorderBrush="#18957A" BorderThickness="5" MouseDown="Border_MouseDown">
+    <Border Background="Black" CornerRadius="50" BorderBrush="#18957A" BorderThickness="5" MouseDown="Border_MouseDown">
         <Grid>
             
             
