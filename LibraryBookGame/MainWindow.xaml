@@ -21,6 +21,9 @@
 
     <Border Background="#16697A" CornerRadius="50" BorderBrush="#18957A" BorderThickness="5" MouseDown="Border_MouseDown">
         <Grid>
+            
+            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200" />
 
@@ -37,8 +40,9 @@
                    Foreground="White"
                    FontSize="30"
                    Margin="20,0,0,0" />
-
             
+
+
             <StackPanel Grid.Row="1">
 
                 <RadioButton Content="Replacing Books"
@@ -61,6 +65,32 @@
                              Foreground="White"
                              FontSize="14" 
                              Style="{StaticResource MenuButtonTheme}"/>
+
+                <Button x:Name="CloseButton"
+                        Content="Close"
+                        Height="50"
+                        Width="62.5"
+                        Foreground="White"
+                        FontSize="14"
+                        Background="Red"
+                        Margin="-80,258,0,0"
+                        Click="CloseButton_Click"
+                        BorderBrush="Black"
+                        Style="{StaticResource RoundButton}"/>
+
+                <Button x:Name="MinimizeButton"
+                        Content="Minimize"
+                        Height="50"
+                        Width="62.5"
+                        Foreground="Black"
+                        FontSize="14"
+                        Background="LightGoldenrodYellow"
+                        Margin="60,-50,0,0"
+                        Click="MinimizeButton_Click_1"
+                        BorderBrush="Black"
+                        Style="{StaticResource RoundButton}"/>
+
+
 
             </StackPanel>
 

@@ -34,6 +34,7 @@ namespace LibraryBookGame.MVVM.View
         private HashSet<string> droppedCallNumbers = new HashSet<string>();
         private Random random = new Random();
 
+
         public ReplacingBooks()
         {
             InitializeComponent();
@@ -68,7 +69,11 @@ namespace LibraryBookGame.MVVM.View
             CallNumbersListBox.Items.Clear();
             foreach (var callNumber in callNumbers)
             {
-                CallNumbersListBox.Items.Add(callNumber);
+                // Check if the call number has not been dropped
+                if (!droppedCallNumbers.Contains(callNumber))
+                {
+                    CallNumbersListBox.Items.Add(callNumber);
+                }
             }
         }
 
@@ -92,7 +97,6 @@ namespace LibraryBookGame.MVVM.View
             }
             return true;
         }
-
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
@@ -220,6 +224,14 @@ namespace LibraryBookGame.MVVM.View
         {
             if (draggedItem != null)
             {
+                // Check if the dragged item is in the UserSortingListBox
+                if (UserSortingListBox.Items.Contains(draggedItem.DataContext))
+                {
+                    // The item was dragged from the UserSortingListBox, do not insert it into CallNumbersListBox
+                    draggedItem = null;
+                    return;
+                }
+
                 int targetIndex = CallNumbersListBox.Items.IndexOf(CallNumbersListBox.SelectedItem);
 
                 if (targetIndex >= 0)
@@ -235,10 +247,13 @@ namespace LibraryBookGame.MVVM.View
                         {
                             callNumbers.RemoveAt(selectedIndex);
                             callNumbers.Insert(targetIndex, droppedCallNumber);
+                            droppedCallNumbers.Add(droppedCallNumber);
+
+                            // Update the ListBox display
                             DisplayCallNumbers();
 
-                            // Add the call number to the set of dropped call numbers
-                            droppedCallNumbers.Add(droppedCallNumber);
+                            // Optional: You can also select the newly added item
+                            CallNumbersListBox.SelectedItem = droppedCallNumber;
                         }
                     }
                 }
@@ -246,6 +261,8 @@ namespace LibraryBookGame.MVVM.View
                 draggedItem = null;
             }
         }
+
+
 
         private void UserSortingListBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
