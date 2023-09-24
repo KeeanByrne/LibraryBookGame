@@ -12,6 +12,8 @@
         Background="Transparent"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen">
+    
+    
 
 
     <Window.DataContext>
@@ -41,9 +43,7 @@
                    FontSize="30"
                    Margin="20,0,0,0" />
             
-
-
-            <StackPanel Grid.Row="1">
+            <StackPanel Grid.Row="1" >
 
                 <RadioButton Content="Replacing Books"
                              Height="50"

@@ -4,15 +4,13 @@
              xmlns:local="clr-namespace:LibraryBookGame"
              xmlns:viewModel="clr-namespace:LibraryBookGame.MVVM.ViewModel"
              xmlns:view="clr-namespace:LibraryBookGame.MVVM.View"
-             StartupUri="MainWindow.xaml">
+             StartupUri="StartWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/MenuButtonTheme.xaml" />
                 <ResourceDictionary Source="Theme/RoundedButton.xaml" />
             </ResourceDictionary.MergedDictionaries>
-
-           
 
             <DataTemplate DataType="{x:Type viewModel:ReplacingBooksViewModel}">
                 <view:ReplacingBooks/>
@@ -21,8 +19,7 @@
             <DataTemplate DataType="{x:Type viewModel:IdentifyingAreasViewModel}">
                 <view:IdentifyingAreas/>
             </DataTemplate>
-            
-            
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

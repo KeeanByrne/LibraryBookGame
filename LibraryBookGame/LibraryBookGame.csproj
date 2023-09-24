@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="StartWindow.xaml.cs">
+      <DependentUpon>StartWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,6 +80,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\View\StartScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StartWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Theme\MenuButtonTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -95,6 +106,9 @@
     </Compile>
     <Compile Include="MVVM\View\ReplacingBooks.xaml.cs">
       <DependentUpon>ReplacingBooks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\StartScreen.xaml.cs">
+      <DependentUpon>StartScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -133,6 +147,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Truck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LibraryBooks.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\OpenBook.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
