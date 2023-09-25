@@ -21,11 +21,9 @@
     </Window.DataContext>
 
 
-    <Border Background="Black" CornerRadius="50" BorderBrush="#18957A" BorderThickness="5" MouseDown="Border_MouseDown">
+    <Border Background="Black" CornerRadius="50" BorderBrush="White" BorderThickness="5" MouseDown="Border_MouseDown">
         <Grid>
             
-            
-
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200" />
 
@@ -90,8 +88,6 @@
                         Click="MinimizeButton_Click_1"
                         BorderBrush="Black"
                         Style="{StaticResource RoundButton}"/>
-
-
 
             </StackPanel>
 

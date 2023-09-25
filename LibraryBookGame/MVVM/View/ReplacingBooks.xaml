@@ -51,7 +51,6 @@
                              PreviewMouseLeftButtonDown="UserSortingListBox_PreviewMouseLeftButtonDown"
                              Drop="UserSortingListBox_Drop"/>
 
-
                 </StackPanel>
             </Grid>
         </Border>
