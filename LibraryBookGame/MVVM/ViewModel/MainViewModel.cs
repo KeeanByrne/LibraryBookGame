@@ -1,4 +1,5 @@
 ﻿using LibraryBookGame.Core;
+using LibraryBookGame.MVVM.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,13 @@ namespace LibraryBookGame.MVVM.ViewModel
 
         public  RelayCommand ReplacingBooksCommand { get; set; }
         public RelayCommand IdentifyingAreasCommand { get; set; }
+        public RelayCommand FindingCallNumbersCommand { get; set; }
+
+
         
         public ReplacingBooksViewModel ReplacingBooksVM { get; set; }
-
         public IdentifyingAreasViewModel IdentifyingAreasVM { get; set; }
+        public FindingCallNumbersViewModel FindingCallNumbersVM { get; set; }
 
         private object _currentView;
 
@@ -30,6 +34,7 @@ namespace LibraryBookGame.MVVM.ViewModel
         {
             ReplacingBooksVM = new ReplacingBooksViewModel();
             IdentifyingAreasVM = new IdentifyingAreasViewModel();
+            FindingCallNumbersVM = new FindingCallNumbersViewModel();
             
             CurrentView = ReplacingBooksVM;
 
@@ -45,6 +50,11 @@ namespace LibraryBookGame.MVVM.ViewModel
 
                 CurrentView = IdentifyingAreasVM;
 
+            });
+
+            FindingCallNumbersCommand = new RelayCommand(o =>
+            {
+                CurrentView = FindingCallNumbersVM;
             });
         }
     }

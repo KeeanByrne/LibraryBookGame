@@ -20,6 +20,10 @@
                 <view:IdentifyingAreas/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:FindingCallNumbersViewModel}">
+                <view:FindingCallNumbers/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

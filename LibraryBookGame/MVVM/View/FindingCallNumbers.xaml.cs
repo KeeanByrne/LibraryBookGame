@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace LibraryBookGame.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for StartScreen.xaml
+    /// Interaction logic for FindingCallNumbers.xaml
     /// </summary>
-    public partial class StartScreen : UserControl
+    public partial class FindingCallNumbers : UserControl
     {
-        public StartScreen()
+        public FindingCallNumbers()
         {
             InitializeComponent();
         }

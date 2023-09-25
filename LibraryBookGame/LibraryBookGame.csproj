@@ -55,6 +55,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MVVM\ViewModel\FindingCallNumbersViewModel.cs" />
+    <Compile Include="MVVM\View\FindingCallNumbers.xaml.cs">
+      <DependentUpon>FindingCallNumbers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\StartScreen.xaml.cs">
+      <DependentUpon>StartScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
@@ -72,6 +79,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\View\FindingCallNumbers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\IdentifyingAreas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -106,9 +117,6 @@
     </Compile>
     <Compile Include="MVVM\View\ReplacingBooks.xaml.cs">
       <DependentUpon>ReplacingBooks.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MVVM\View\StartScreen.xaml.cs">
-      <DependentUpon>StartScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
