@@ -23,7 +23,9 @@
             <Grid>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#198398" Height="300" Width="500">
+                   
                     <StackPanel>
+                        <!--Timer for Replacing Books-->
                         <!--Buttons for Replacing Books-->
                         <Button x:Name="StartButton" Content="Start" Width="100" Height="30" Click="StartButton_Click" Margin="20,30,20,10" Background="#C1E1C1" Style="{DynamicResource RoundButton}"/>
                         <Button x:Name="SortButton" Content="Done" Width="100" Height="30" Click="SortButton_Click" IsEnabled="False" Background="#C1E1C1" Style="{DynamicResource RoundButton}" />
@@ -50,6 +52,8 @@
                              AllowDrop="True"
                              PreviewMouseLeftButtonDown="UserSortingListBox_PreviewMouseLeftButtonDown"
                              Drop="UserSortingListBox_Drop"/>
+                    <TextBlock Text="Time Left:" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-500,-270,0,0" />
+                    <Label x:Name="timerLabel" Content="30" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Height="44" Margin="-380,-260,0,0"/>
 
                 </StackPanel>
             </Grid>

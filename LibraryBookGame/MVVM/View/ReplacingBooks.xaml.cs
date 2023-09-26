@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace LibraryBookGame.MVVM.View
 
@@ -40,9 +41,48 @@ namespace LibraryBookGame.MVVM.View
         private Random random = new Random();
 
 
+        private int remainingSeconds = 30;
+        private DispatcherTimer timer;
+
+
         public ReplacingBooks()
         {
             InitializeComponent();
+            InitializeTimer();
+        }
+
+        private void InitializeTimer()
+        {
+            timer = new DispatcherTimer(DispatcherPriority.Normal);
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += Timer_Tick;
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (remainingSeconds > 0)
+            {
+                remainingSeconds--;
+                timerLabel.Content = remainingSeconds.ToString();
+            }
+            else
+            {
+                timer.Stop();
+                MessageBox.Show("Time's up!");
+                
+            }
+        }
+
+        private void RestartTimer()
+        {
+            //If Statement fixed issue where timer would automatically start after restart button is clicked // (Chat-GPT)
+
+            if (timer.IsEnabled)
+            {
+                timer.Stop();
+            }
+            remainingSeconds = 30;
+            timerLabel.Content = remainingSeconds.ToString();
         }
 
         private void GenerateCallNumbers()
@@ -82,8 +122,8 @@ namespace LibraryBookGame.MVVM.View
             }
         }
 
-        //Method to check if the call numbers sorted by the user are correctly placed in ascending order
 
+        //Method to check if the call numbers sorted by the user are correctly placed in ascending order
         private bool IsSortedInAscendingOrder(ListBox listBox)
         {
             List<string> sortedList = new List<string>();
@@ -105,18 +145,20 @@ namespace LibraryBookGame.MVVM.View
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
+            //Starts Timer
+            timer.Start();
 
-            // Method call to generate 10 random call numbers
+            //Method call to generate 10 random call numbers
             GenerateCallNumbers();
 
-            // Display the call numbers to the user
+            //Display the call numbers to the user in the CallNumbersListBox
             DisplayCallNumbers();
 
-            // Enable the Sort and Restart buttons
+            //Enables the Sort and Restart buttons
             SortButton.IsEnabled = true;
             RestartButton.IsEnabled = true;
 
-            // Enable manual sorting in the ListBox
+            //Enables manual sorting in the ListBox
             CallNumbersListBox.AllowDrop = true;
             CallNumbersListBox.PreviewMouseLeftButtonDown += UserSortingListBox_PreviewMouseLeftButtonDown;
             CallNumbersListBox.Drop += CallNumbersListBox_Drop;
@@ -125,14 +167,14 @@ namespace LibraryBookGame.MVVM.View
 
         private void SortButton_Click(object sender, RoutedEventArgs e)
         {
-            // Check if the call numbers are sorted in ascending order
+            //Checks if the call numbers are sorted in ascending order
             bool isSorted = IsSorted(callNumbers);
 
-            // Calculate the score based on sorting correctness
+            //Calculates the score based on sorting correctness
             int correctPlacements = CalculateCorrectPlacements(UserSortingListBox);
             score = isSorted ? (correctPlacements * 10) : 0;
 
-            // Update the score label
+            //Updates the score label
             ScoreLabel.Content = $"Score: {score}%";
         }
 
@@ -164,7 +206,7 @@ namespace LibraryBookGame.MVVM.View
                 sortedList.Add(item.ToString());
             }
 
-            // Logic to check if sorting is in ascending order
+            //Logic to check if the call numbers have been placed in ascending order
             for (int i = 0; i < sortedList.Count - 1; i++)
             {
                 if (string.Compare(sortedList[i], sortedList[i + 1], StringComparison.Ordinal) > 0)
@@ -183,21 +225,25 @@ namespace LibraryBookGame.MVVM.View
 
             if(result == MessageBoxResult.Yes)
             {
-                // Clear call numbers
+                //Restarts Countdown from 30 seconds
+                RestartTimer();
+
+                //Clears call numbers
                 callNumbers.Clear();
 
-                // Clear the ListBox
+                //Clears the ListBox
                 CallNumbersListBox.Items.Clear();
 
-                // Clear the UserSortingListBox
+                //Clears the UserSortingListBox
                 UserSortingListBox.Items.Clear();
 
-                // Disable the Sort and Restart buttons
+                //Disables the Sort and Restart buttons
                 SortButton.IsEnabled = false;
                 RestartButton.IsEnabled = false;
 
-                // Clear and disable the score label
+                //Clears and disables the score label
                 ScoreLabel.Content = "";
+
             }
            
         }
@@ -229,10 +275,10 @@ namespace LibraryBookGame.MVVM.View
         {
             if (draggedItem != null)
             {
-                // Check if the dragged item is in the UserSortingListBox
+                //Checks if the dragged item is in the UserSortingListBox
                 if (UserSortingListBox.Items.Contains(draggedItem.DataContext))
                 {
-                    // The item was dragged from the UserSortingListBox, do not insert it into CallNumbersListBox
+                    
                     draggedItem = null;
                     return;
                 }
@@ -254,10 +300,10 @@ namespace LibraryBookGame.MVVM.View
                             callNumbers.Insert(targetIndex, droppedCallNumber);
                             droppedCallNumbers.Add(droppedCallNumber);
 
-                            // Update the ListBox display
+                            // Updates the ListBox display
                             DisplayCallNumbers();
 
-                            // Optional: You can also select the newly added item
+                            
                             CallNumbersListBox.SelectedItem = droppedCallNumber;
                         }
                     }
