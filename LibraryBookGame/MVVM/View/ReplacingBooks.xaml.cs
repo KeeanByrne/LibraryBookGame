@@ -32,15 +32,17 @@ namespace LibraryBookGame.MVVM.View
    
     public partial class ReplacingBooks : UserControl
     {
-
+        //Variables for callnumber storage
         private List<string> callNumbers = new List<string>();
-        private List<string> draggedItems = null;
-        private int score = 0;
+        /*private List<string> draggedItems = null;*/
         private ListBoxItem draggedItem = null;
         private HashSet<string> droppedCallNumbers = new HashSet<string>();
+
+        //Variables for Game functionality
+        private int score = 0;
         private Random random = new Random();
 
-
+        //Variables for the timer
         private int remainingSeconds = 30;
         private DispatcherTimer timer;
 
@@ -68,8 +70,8 @@ namespace LibraryBookGame.MVVM.View
             else
             {
                 timer.Stop();
-                MessageBox.Show("Time's up!");
-                
+                MessageBox.Show("Oh no! Your time has run out. Click the 'Done' Button to calculate your score!");
+
             }
         }
 
@@ -195,8 +197,13 @@ namespace LibraryBookGame.MVVM.View
                     correctPlacements++;
                 }
             }
-            return correctPlacements;
+
+            // Add 1 to count the first placement as correct
+            correctPlacements++;
+
+            return correctPlacements; // Multiply by 10 to get a score out of 100
         }
+
 
         private bool IsSorted(List<string> list)
         {
@@ -248,19 +255,19 @@ namespace LibraryBookGame.MVVM.View
            
         }
 
-        private void ListBoxItem_PreviewMouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                ListBoxItem listBoxItem = sender as ListBoxItem;
+       private void ListBoxItem_PreviewMouseMove(object sender, MouseEventArgs e)
+{
+    if (e.LeftButton == MouseButtonState.Pressed)
+    {
+        ListBoxItem listBoxItem = sender as ListBoxItem;
 
-                if (listBoxItem != null && listBoxItem.DataContext != null)
-                {
-                    draggedItem = listBoxItem;
-                    DragDrop.DoDragDrop(listBoxItem, listBoxItem.DataContext, DragDropEffects.Move);
-                }
-            }
+        if (listBoxItem != null && listBoxItem.DataContext != null)
+        {
+            draggedItem = listBoxItem;
+            DragDrop.DoDragDrop(listBoxItem, listBoxItem.DataContext, DragDropEffects.Move);
         }
+    }
+}
 
         private void CallNumbersListBox_DragOver(object sender, DragEventArgs e)
         {
