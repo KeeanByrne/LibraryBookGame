@@ -352,7 +352,8 @@ namespace LibraryBookGame.MVVM.View
 
         private void HowToPlayButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("10 Random Call Numbers will be generated for you to sort in ASCENDING ORDER. Drag and drop them from the box on the left to the box on the right", "Start Game",
+            MessageBox.Show("Drag and drop the Call Numbers from the box on the left to the box on the right. " +
+                "\n\nKeep track of your time as you only have 30 seconds to complete the game!", "Start Game",
             MessageBoxButton.OK);
 
         }
