@@ -162,5 +162,8 @@
   <ItemGroup>
     <Resource Include="Images\OpenBook.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="README.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
