@@ -19,25 +19,30 @@
 
         <Border Width="684"
                 Height="388"
-                Background="#8391A1"
+                Background="#187C90"
                 CornerRadius="30"
                 BorderThickness="5"
                 BorderBrush="Black">
 
 
-            <Grid>
-                <StackPanel Orientation="Horizontal" 
-                            HorizontalAlignment="Center" 
-                            VerticalAlignment="Center" 
-                            Background="#8391A1" 
-                            Height="300" Width="500">
+            <StackPanel>
+                <Grid>
+                    <Label x:Name="wordsLbl" Content="Call Numbers" Margin="187,39,337,69" HorizontalAlignment="Center" />
+                    <ListBox x:Name="wordListView" Width="150" Height="240" Background="Aquamarine" BorderBrush="Black" BorderThickness="2" Margin="187,69,337,69" >
 
-                    <Image Source="/Images/Crane.png" />
-                    <TextBlock Text="This page is still under construction" Margin="-140,150,0,0" />
-                    <Image Source="/Images/Truck.png" Height="191" Width="185" Margin="-130,140,0,0"/>
-                </StackPanel>
+                    </ListBox>
 
-            </Grid>
+                    <Label x:Name="definitionsLbl" Content="Definitions" Margin="414,39,0,69" HorizontalAlignment="Left" />
+                    <ListBox x:Name="definitionListView" Width="150" Height="240" Margin="372,69,152,69" Background="Aquamarine" BorderBrush="Black" BorderThickness="2" >
+
+                    </ListBox>
+
+
+
+                </Grid>
+
+
+            </StackPanel>
         </Border>
     </StackPanel>
 </UserControl>
