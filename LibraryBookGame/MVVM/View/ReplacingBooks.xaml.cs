@@ -17,16 +17,10 @@ using System.Windows.Threading;
 
 namespace LibraryBookGame.MVVM.View
 
-    //Add feature to tell User which callNumber is in the incorrect position.
-
-    //Also make how to play button. 
-
-    //Reset pop up asking if the user is sure they want to restart the game
-
-    //Add timer feature for gamification
+   
 
 
-    //Call Numbers are disappearing in the callNumbers list Box. 
+ 
 
 {
    
@@ -256,18 +250,18 @@ namespace LibraryBookGame.MVVM.View
         }
 
        private void ListBoxItem_PreviewMouseMove(object sender, MouseEventArgs e)
-{
-    if (e.LeftButton == MouseButtonState.Pressed)
-    {
-        ListBoxItem listBoxItem = sender as ListBoxItem;
-
-        if (listBoxItem != null && listBoxItem.DataContext != null)
         {
-            draggedItem = listBoxItem;
-            DragDrop.DoDragDrop(listBoxItem, listBoxItem.DataContext, DragDropEffects.Move);
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                ListBoxItem listBoxItem = sender as ListBoxItem;
+
+                if (listBoxItem != null && listBoxItem.DataContext != null)
+                {
+                    draggedItem = listBoxItem;
+                    DragDrop.DoDragDrop(listBoxItem, listBoxItem.DataContext, DragDropEffects.Move);
+                }
+            }
         }
-    }
-}
 
         private void CallNumbersListBox_DragOver(object sender, DragEventArgs e)
         {
