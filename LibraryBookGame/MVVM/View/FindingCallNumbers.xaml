@@ -29,7 +29,7 @@
                             Height="300" Width="500">
 
                     <Image Source="/Images/Crane.png" />
-                    <TextBlock Text="This page is still under construction" Margin="-140,150,0,0" />
+                    <TextBlock Text="This page is no longr under construction" Margin="-140,150,0,0" />
                     <Image Source="/Images/Truck.png" Height="191" Width="185" Margin="-130,140,0,0"/>
                 </StackPanel>
 
