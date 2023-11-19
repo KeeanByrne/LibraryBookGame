@@ -146,6 +146,7 @@
   <ItemGroup>
     <Folder Include="Fonts\" />
     <Folder Include="MVVM\Model\" />
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Trophy.png" />
