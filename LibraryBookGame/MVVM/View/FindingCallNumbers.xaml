@@ -25,7 +25,7 @@
                 <StackPanel>
                     <Grid>
 
-                        <StackPanel Margin="-450,-26,0,0" Width="150" Height="280">
+                        <StackPanel Margin="-540,-26,0,0" Width="150" Height="280">
 
                             <!--Buttons for Replacing Books-->
                             <Button x:Name="StartButton" Content="Start" Width="100" Height="30" Click="StartButton_Click" Margin="20,30,20,10" Background="#C1E1C1" Style="{DynamicResource RoundButton}"/>
@@ -36,14 +36,10 @@
                             <Image Source="/Images/Trophy.png" Width="55" Height="55" Margin="-100,-210,-20,0"/>
                         </StackPanel>
 
-                        <ListBox x:Name="wordListView" Width="150" Height="240" Background="Aquamarine" BorderBrush="Black" BorderThickness="2" Margin="187,69,337,69" >
-
-                        </ListBox>
+                        <ListBox x:Name="wordListView" Height="240" Background="Aquamarine" BorderBrush="Black" BorderThickness="2" Margin="147,68,310,70" />
 
 
-                        <ListBox x:Name="definitionListView" Width="150" Height="240" Margin="372,69,152,69" Background="Aquamarine" BorderBrush="Black" BorderThickness="2" >
-
-                        </ListBox>
+                        <ListBox x:Name="definitionListView" Height="240" Margin="394,69,55,69" Background="Aquamarine" BorderBrush="Black" BorderThickness="2" />
 
                         <!--Timer for Replacing Books-->
                         <TextBlock Text="Time Left:" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="192,41,0,0" />

@@ -1,0 +1,135 @@
+﻿(1)000 Generalities
+(2)010 Bibliographies
+(3)014 Bibliographies of anonymous & pseudonymous works
+(3)017 General subject catalogs
+(2)030 Encyclopedias & books of facts
+(3)032 Encyclopedias in English
+(3)037 Encyclopedias in Slavic languages
+(2)060 Associations, organizations & museums
+(3)061 Organizations in North America
+(3)069 Museum science
+(1)100 Philosophy & psychology
+(2)120 Epistemology, causation, humankind
+(3)125 Epistemology in Eastern philosophy
+(3)130 Parapsychology & occultism
+(2)140 Specific philosophical schools
+(3)145 Analytic philosophy
+(3)150 Asian, African, and Latin American philosophies
+(1)200 Religion
+(3)210 Natural theology
+(3)215 Religion in the public square
+(2)220 Bible
+(3)225 New Testament
+(3)230 Christian theology
+(2)240 Christian moral & devotional theology
+(3)245 Sacraments, other rites & acts
+(3)250 Christian orders & local church
+(2)260 Social & ecclesiastical theology
+(3)265 Sacraments & other rites
+(3)270 Religious history
+(1)300 Social sciences
+(3)310 General statistics
+(3)315 Social problems & social welfare
+(2)320 Political science
+(3)325 International migration & colonization
+(3)330 Economics
+(2)340 Law
+(3)345 Criminal law
+(3)350 Public administration
+(2)360 Social services & association
+(3)365 Penal & related institutions
+(3)370 Education
+(2)380 Commerce, communications, & transportation
+(3)385 Railroad transportation
+(3)390 Customs, etiquette & folklore
+(1)400 Language
+(3)410 Linguistics
+(3)415 Linguistic geography
+(2)420 English & Old English
+(3)425 English grammar
+(3)430 Germanic languages; German
+(2)440 French & related Romance languages
+(3)445 Italian, Romanian, Rhaeto-Romanic
+(3)450 Spanish & Portuguese languages
+(2)460 Italian, Romanian, Rhaeto-Romanic
+(3)465 Spanish & Portuguese languages
+(3)470 Latin & Italic languages
+(2)480 Classical & modern Greek languages
+(3)485 Classical Greek
+(3)490 Other languages
+(1)500 Natural sciences & mathematics
+(3)510 Mathematics
+(3)515 Analysis
+(2)520 Astronomy & allied sciences
+(3)525 Earth (Astronomical geography)
+(3)530 Physics
+(2)540 Chemistry & allied sciences
+(3)545 Crystallography
+(3)550 Earth sciences
+(2)560 Paleontology
+(3)565 Fossil mollusca & molluscoidea
+(3)570 Biology
+(2)580 Plants (Botany)
+(3)585 Gymnosperms
+(3)590 Animals (Zoology)
+(1)600 Technology
+(3)610 Medicine & health
+(3)615 Pharmacology & therapeutics
+(2)620 Engineering & allied operations
+(3)625 Engineering of railroads
+(3)630 Agriculture
+(2)640 Home economics & family living
+(3)645 Interior decoration
+(3)650 Management & public relations
+(2)660 Chemical engineering
+(3)665 Industrial engineering & manufactures
+(3)670 Manufacturing
+(2)680 Manufacture of products for specific uses
+(3)685 Leather & fur goods
+(3)690 Buildings
+(1)700 Arts & Recreation
+(3)710 Area planning & landscape architecture
+(3)715 Woody plants
+(2)720 Architecture
+(3)725 Public structures
+(3)730 Plastic arts; sculpture
+(2)740 Drawing & decorative arts
+(3)745 Decorative arts
+(3)750 Painting & paintings
+(3)760 Printmaking & prints
+(2)770 Photography & photographs
+(3)775 Digital photography
+(3)780 Music
+(2)790 Sports, games & entertainment
+(3)795 Games of chance
+(1)800 Literature & Rhetoric
+(2)810 American literature in English
+(3)815 American speeches
+(3)820 English & Old English literatures
+(2)830 German & related literatures
+(3)835 German speeches
+(3)840 French & related literatures
+(2)850 Italian, Romanian, Rhaeto-Romanic literatures
+(3)855 Italian speeches
+(3)860 Spanish & Portuguese literatures
+(2)870 Latin & Italic literatures
+(3)875 Latin speeches
+(3)880 Classical Greek literatures
+(2)890 Other literatures
+(3)895 Afro-Asiatic literatures
+(1)900 History & Geography
+(2)910 Geography & travel
+(3)915 Asia & Far East travel
+(3)920 Biography, genealogy, insignia
+(2)930 History of ancient world (to ca. 499)
+(3)935 Middle East (Near East)
+(3)940 General history of Europe
+(2)950 General history of Asia (Far East)
+(3)955 Iran (Persia)
+(3)960 General history of Africa
+(2)970 General history of North America
+(3)975 General history of South America
+(3)980 General history of Australia, New Zealand, Pacific islands
+(2)990 General history of other areas
+(3)995 Other areas
+(3)999 Extraterrestrial worlds & intelligent life
