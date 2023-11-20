@@ -1,135 +1,103 @@
-﻿(1)000 Generalities
-(2)010 Bibliographies
-(3)014 Bibliographies of anonymous & pseudonymous works
-(3)017 General subject catalogs
-(2)030 Encyclopedias & books of facts
-(3)032 Encyclopedias in English
-(3)037 Encyclopedias in Slavic languages
-(2)060 Associations, organizations & museums
-(3)061 Organizations in North America
-(3)069 Museum science
-(1)100 Philosophy & psychology
-(2)120 Epistemology, causation, humankind
-(3)125 Epistemology in Eastern philosophy
-(3)130 Parapsychology & occultism
-(2)140 Specific philosophical schools
-(3)145 Analytic philosophy
-(3)150 Asian, African, and Latin American philosophies
+﻿(1)000 Computer science, information, and general works
+(2)000 Computer science, knowledge, and systems
+(3)001 Knowledge
+(3)004 Data processing and computer science
+(2)010 Bibliographies 
+(3)014 Bibliographies of anonymous and pseudonymous works
+(2)020 Library and Information Sciences
+(3)026 Libraries for specific subjects
+(2)070 News media, journalism, and publishing
+(3)072 Newspapers in British Isles; in England
+(1)100 Philosophy and psychology
+(2)110 Metaphysics
+(3)114 Space
+(3)117 Structure
+(2)130 Parapsychology and occultism
+(3)135 Dreams and mysteries
+(2)150 Psychology 
+(3)156 Comparative psychology
+(2)170 Ethics
+(3)172 Political Ethics
 (1)200 Religion
-(3)210 Natural theology
-(3)215 Religion in the public square
-(2)220 Bible
-(3)225 New Testament
-(3)230 Christian theology
-(2)240 Christian moral & devotional theology
-(3)245 Sacraments, other rites & acts
-(3)250 Christian orders & local church
-(2)260 Social & ecclesiastical theology
-(3)265 Sacraments & other rites
-(3)270 Religious history
-(1)300 Social sciences
-(3)310 General statistics
-(3)315 Social problems & social welfare
-(2)320 Political science
-(3)325 International migration & colonization
-(3)330 Economics
+(2)210 Philosophy and theory of religion'
+(3)211 Concepts of God
+(3)214 Theodicy
+(2)220 The Bible
+(3)226 New Testament
+(3)228 Revelation (Apocalypse)
+(2)240 Christian practice and observance
+(3)241 Christian ethics
+(2)280 Christian denominations
+(3)282 Roman Catholic Church
+(2)290 Other religions
+(3)293 Germanic religion
+(1)300 Social Sciences
+(2)310 Statistics 
+(3)314 General Statistics of Europe
+(3)318 General Statistics of South America
+(2)330 Economics
+(3)331 Labor Economics
+(3)336 Public Finance
 (2)340 Law
-(3)345 Criminal law
-(3)350 Public administration
-(2)360 Social services & association
-(3)365 Penal & related institutions
-(3)370 Education
-(2)380 Commerce, communications, & transportation
-(3)385 Railroad transportation
-(3)390 Customs, etiquette & folklore
+(3)345 Criminal Law
+(3)347 Procedure and Courts
+(2)360 Social problems and social services
+(3)364 Criminology
+(2)370 Education
+(3)374 Adult education
 (1)400 Language
-(3)410 Linguistics
-(3)415 Linguistic geography
-(2)420 English & Old English
-(3)425 English grammar
-(3)430 Germanic languages; German
-(2)440 French & related Romance languages
-(3)445 Italian, Romanian, Rhaeto-Romanic
-(3)450 Spanish & Portuguese languages
-(2)460 Italian, Romanian, Rhaeto-Romanic
-(3)465 Spanish & Portuguese languages
-(3)470 Latin & Italic languages
-(2)480 Classical & modern Greek languages
-(3)485 Classical Greek
-(3)490 Other languages
-(1)500 Natural sciences & mathematics
-(3)510 Mathematics
-(3)515 Analysis
-(2)520 Astronomy & allied sciences
-(3)525 Earth (Astronomical geography)
-(3)530 Physics
-(2)540 Chemistry & allied sciences
-(3)545 Crystallography
-(3)550 Earth sciences
-(2)560 Paleontology
-(3)565 Fossil mollusca & molluscoidea
-(3)570 Biology
-(2)580 Plants (Botany)
-(3)585 Gymnosperms
-(3)590 Animals (Zoology)
+(2)410 Linguistics
+(3)412 Etymology of standard forms of languages
+(2)450 Italian, Romanian and Related Languages
+(3)452 Etymology of standard Italian
+(3)459 Romanian, Rhaetian, Sardinian, Corsican
+(2)470 Latin and Italic languages
+(3)472 Etymology of classical Latin
+(3)477 Old, postclassical, Vulgar Latin
+(1)500 Science
+(2)510 Mathematics
+(3)512 Algebra
+(3)516 Geometry
+(2)520 Astronomy
+(3)521 Celestial mechanics
+(3)528 Ephemerides
+(2)530 Physics
+(3)534 Sound
+(3)536 Heat
+(2)580 Plants
+(3)584 Liliopsida 
+(3)588 Bryophyta
 (1)600 Technology
-(3)610 Medicine & health
-(3)615 Pharmacology & therapeutics
-(2)620 Engineering & allied operations
-(3)625 Engineering of railroads
-(3)630 Agriculture
-(2)640 Home economics & family living
-(3)645 Interior decoration
-(3)650 Management & public relations
-(2)660 Chemical engineering
-(3)665 Industrial engineering & manufactures
-(3)670 Manufacturing
-(2)680 Manufacture of products for specific uses
-(3)685 Leather & fur goods
-(3)690 Buildings
-(1)700 Arts & Recreation
-(3)710 Area planning & landscape architecture
-(3)715 Woody plants
-(2)720 Architecture
+(2)630 Agriculture
+(3)638 Insect Culture
+(2)660 Chemical Engineering
+(3)661 Technology of industrial chemicals
+(3)664 Food technology
+(2)670 Manufacturing
+(3)675 Leather and fur processing
+(2)690 Construction of buildings
+(3)694 Wood construction
+(1)700 Arts and Recreation
+(2)700 Arts
+(3)704 Special topics in fine and decorative arts
+(2)720 Architecture 
 (3)725 Public structures
-(3)730 Plastic arts; sculpture
-(2)740 Drawing & decorative arts
-(3)745 Decorative arts
-(3)750 Painting & paintings
-(3)760 Printmaking & prints
-(2)770 Photography & photographs
-(3)775 Digital photography
-(3)780 Music
-(2)790 Sports, games & entertainment
-(3)795 Games of chance
-(1)800 Literature & Rhetoric
-(2)810 American literature in English
-(3)815 American speeches
-(3)820 English & Old English literatures
-(2)830 German & related literatures
-(3)835 German speeches
-(3)840 French & related literatures
-(2)850 Italian, Romanian, Rhaeto-Romanic literatures
-(3)855 Italian speeches
-(3)860 Spanish & Portuguese literatures
-(2)870 Latin & Italic literatures
-(3)875 Latin speeches
-(3)880 Classical Greek literatures
-(2)890 Other literatures
-(3)895 Afro-Asiatic literatures
-(1)900 History & Geography
-(2)910 Geography & travel
-(3)915 Asia & Far East travel
-(3)920 Biography, genealogy, insignia
-(2)930 History of ancient world (to ca. 499)
-(3)935 Middle East (Near East)
-(3)940 General history of Europe
-(2)950 General history of Asia (Far East)
-(3)955 Iran (Persia)
-(3)960 General history of Africa
-(2)970 General history of North America
-(3)975 General history of South America
-(3)980 General history of Australia, New Zealand, Pacific islands
-(2)990 General history of other areas
-(3)995 Other areas
-(3)999 Extraterrestrial worlds & intelligent life
+(2)750 Painting
+(3)752 Color
+(3)754 Genre Paintings
+(2)780 Music
+(3)782 Vocal music
+(3)787 Stringed instruments (Chordophones)
+(1)800 Literature
+(2)840 French and related literatures
+(3)843 French Fiction
+(2)850 Italian, Romanian and related literatures
+(3)852 Italian drama
+(1)900 History and geography
+(2)910 Geography and travel
+(3)911 Historical geography
+(3)916 Geography of and travel in Africa
+(2)940 History of Europe
+(3)942 England and Wales
+(2)970 History of North America
+(3)976 South central United States

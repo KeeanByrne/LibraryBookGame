@@ -1,424 +1,64 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
-
-namespace LibraryBookGame.MVVM.View
-{
-    public partial class FindingCallNumbers : UserControl
-    {
-        // Create a class to represent a node in the tree
-
-        private List<string> wordList = new List<string>();
-        public class TreeNode
-        {
-            public string Name { get; set; }
-            public List<TreeNode> Children { get; set; } = new List<TreeNode>();
-        }
-
-        private List<TreeNode> treeNodes = new List<TreeNode>();
-        private List<string> flattenedList = new List<string>();
-
-        public FindingCallNumbers()
-        {
-            InitializeComponent();
-
-            // Specify the path to your text file
-            string filePath = @"D:\Repository\LibraryBookGame\LibraryBookGame\Text\DataCallNumbers.txt";
-
-            // Call the method to read and populate the TreeView
-            ReadDataAndPopulateTree(filePath);
-
-            // Flatten the tree structure for display in the ListView
-            FlattenTreeForListView(treeNodes);
-
-            
-        }
-
-        private void ReadDataAndPopulateTree(string filePath)
-        {
-            try
-            {
-                // Read all lines from the file
-                var lines = File.ReadAllLines(filePath);
-
-                // Assuming each line in the file represents a node in the tree
-                foreach (var line in lines)
-                {
-                    // Split the line based on some delimiter (e.g., comma) if needed
-                    string[] parts = line.Split(',');
-
-                    // Create a tree node
-                    TreeNode node = new TreeNode
-                    {
-                        Name = parts[0], // Assuming the first part is the node name
-                        // Add additional properties if needed
-                    };
-
-                    // Add the node to the list
-                    treeNodes.Add(node);
-                }
-            }
-            catch (Exception ex)
-            {
-                // Handle exceptions
-                MessageBox.Show($"Error reading file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void FlattenTreeForListView(List<TreeNode> nodes)
-        {
-            foreach (var node in nodes)
-            {
-                // Add the current node to the flattened list
-                flattenedList.Add(node.Name);
-
-                // Recursively add child nodes
-                FlattenTreeForListView(node.Children);
-            }
-        }
-
-        *//*private void DisplayFilteredEntries()
-        {
-            // Clear existing items in ListViews
-            wordListView.Items.Clear();
-            definitionListView.Items.Clear();
-
-            // Filter and populate the ListViews
-            foreach (var entry in flattenedList)
-            {
-                if (entry.StartsWith("(3)"))
-                {
-                    // Entry starts with "(3)" - add to wordListView
-                    wordListView.Items.Add(entry);
-                }
-                else
-                {
-                    // Entry doesn't start with "(3)" - add to definitionListView
-                    definitionListView.Items.Add(entry);
-                }
-            }
-        }*//*
-
-        private void DisplayFilteredEntries()
-        {
-            // Clear existing items in ListViews
-            wordListView.Items.Clear();
-            definitionListView.Items.Clear();
-
-            // Filter and populate the ListViews
-            foreach (var entry in flattenedList)
-            {
-                if (entry.StartsWith("(3)"))
-                {
-                    // Entry starts with "(3)" - remove numeric prefix and add to wordListView
-                    wordListView.Items.Add(RemoveNumericPrefix(entry));
-                }
-                else
-                {
-                    // Entry doesn't start with "(3)" - add to definitionListView
-                    definitionListView.Items.Add(entry);
-                }
-            }
-        }
-
-        private string RemoveNumericPrefix(string entry)
-        {
-            // Find the index of the first non-numeric character after the opening parenthesis
-            int startIndex = entry.IndexOf('(') + 1;
-            while (startIndex < entry.Length && char.IsDigit(entry[startIndex]))
-            {
-                startIndex++;
-            }
-
-            // Remove the numeric prefix and trim any leading whitespace
-            return entry.Substring(startIndex).Trim();
-        }
-
-
-
-        private void StartButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Call the method to display filtered entries in ListViews
-            DisplayFilteredEntries();
-            DisplayRandomWordEntry();
-            
-        }
-
-        private void RestartButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void HowToPlayButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void DisplayRandomWordEntry()
-        {
-            // Clear existing items in wordList
-            wordList.Clear();
-
-            // Filter and populate wordList
-            foreach (var entry in flattenedList)
-            {
-                if (entry.StartsWith("(3)"))
-                {
-                    // Entry starts with "(3)" - add to wordList
-                    wordList.Add(entry);
-                }
-            }
-
-            // Clear existing items in wordListView
-            wordListView.Items.Clear();
-
-            // Display a random entry from wordList if there are any
-            if (wordList.Count > 0)
-            {
-                Random random = new Random();
-                int randomIndex = random.Next(wordList.Count);
-
-                wordListView.Items.Add(wordList[randomIndex]);
-            }
-        }
-
-    }
-}
-
-
-*//*
-
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Windows;
-using System.Windows.Controls;
-
-namespace LibraryBookGame.MVVM.View
-{
-    public partial class FindingCallNumbers : UserControl
-    {
-        // Create a class to represent a node in the tree
-
-        private List<string> wordList = new List<string>();
-        public class TreeNode
-        {
-            public string Name { get; set; }
-            public List<TreeNode> Children { get; set; } = new List<TreeNode>();
-        }
-
-        private List<TreeNode> treeNodes = new List<TreeNode>();
-        private List<string> flattenedList = new List<string>();
-
-        public FindingCallNumbers()
-        {
-            InitializeComponent();
-
-            // Specify the path to your text file
-            string filePath = @"D:\Repository\LibraryBookGame\LibraryBookGame\Text\DataCallNumbers.txt";
-
-            // Call the method to read and populate the TreeView
-            ReadDataAndPopulateTree(filePath);
-
-            // Flatten the tree structure for display in the ListView
-            FlattenTreeForListView(treeNodes);
-        }
-
-        private void ReadDataAndPopulateTree(string filePath)
-        {
-            try
-            {
-                // Read all lines from the file
-                var lines = File.ReadAllLines(filePath);
-
-                // Assuming each line in the file represents a node in the tree
-                foreach (var line in lines)
-                {
-                    // Split the line based on some delimiter (e.g., comma) if needed
-                    string[] parts = line.Split(',');
-
-                    // Create a tree node
-                    TreeNode node = new TreeNode
-                    {
-                        Name = parts[0], // Assuming the first part is the node name
-                        // Add additional properties if needed
-                    };
-
-                    // Add the node to the list
-                    treeNodes.Add(node);
-                }
-            }
-            catch (Exception ex)
-            {
-                // Handle exceptions
-                MessageBox.Show($"Error reading file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void FlattenTreeForListView(List<TreeNode> nodes)
-        {
-            foreach (var node in nodes)
-            {
-                // Add the current node to the flattened list
-                flattenedList.Add(node.Name);
-
-                // Recursively add child nodes
-                FlattenTreeForListView(node.Children);
-            }
-        }
-
-        private void DisplayFilteredEntries()
-        {
-            // Clear existing items in ListViews
-            wordListView.Items.Clear();
-            definitionListView.Items.Clear();
-
-            // Filter and populate the ListViews
-            foreach (var entry in flattenedList)
-            {
-                if (entry.StartsWith("(3)"))
-                {
-                    // Entry starts with "(3)" - remove numeric prefix and add to wordListView
-                    wordListView.Items.Add(RemoveNumericPrefix(entry));
-                }
-                else
-                {
-                    // Entry doesn't start with "(3)" - add to definitionListView
-                    definitionListView.Items.Add(entry);
-                }
-            }
-        }
-
-        private string RemoveNumericPrefix(string entry)
-        {
-            // Find the index of the first non-numeric character after the opening parenthesis
-            int startIndex = entry.IndexOf('(') + 1;
-            while (startIndex < entry.Length && char.IsDigit(entry[startIndex]))
-            {
-                startIndex++;
-            }
-
-            // Remove the numeric prefix and trim any leading whitespace
-            return entry.Substring(startIndex).Trim();
-        }
-
-        private void StartButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Call the method to display filtered entries in ListViews
-            DisplayFilteredEntries();
-            DisplayRandomWordEntry();
-        }
-
-        private void RestartButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Your code for restarting the game
-        }
-
-        private void HowToPlayButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Your code for displaying game instructions
-        }
-
-        private void DisplayRandomWordEntry()
-        {
-            // Clear existing items in wordList
-            wordList.Clear();
-
-            // Filter and populate wordList
-            foreach (var entry in flattenedList)
-            {
-                if (entry.StartsWith("(3)"))
-                {
-                    // Entry starts with "(3)" - add to wordList
-                    wordList.Add(entry);
-                }
-            }
-
-            // Clear existing items in wordListView
-            wordListView.Items.Clear();
-
-            // Display a random entry from wordList if there are any
-            if (wordList.Count > 0)
-            {
-                Random random = new Random();
-                int randomIndex = random.Next(wordList.Count);
-
-                wordListView.Items.Add(wordList[randomIndex]);
-            }
-        }
-
-        // Your other methods and event handlers go here
-    }
-}
-*/
-
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Windows;
 using System.Text.RegularExpressions;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace LibraryBookGame.MVVM.View
 {
     public partial class FindingCallNumbers : UserControl
     {
-        // Create a class to represent a node in the tree
-
         private List<string> wordList = new List<string>();
+        private List<TreeNode> treeNodes = new List<TreeNode>();
+        private List<string> flattenedList = new List<string>();
+        private List<string> quizOptions = new List<string>();
+        private string correctAnswer;
+
+        private int currentLevel = 1; // Starting level
+        private string currentQuestion;
+
         public class TreeNode
         {
             public string Name { get; set; }
             public List<TreeNode> Children { get; set; } = new List<TreeNode>();
         }
 
-        private List<TreeNode> treeNodes = new List<TreeNode>();
-        private List<string> flattenedList = new List<string>();
-
         public FindingCallNumbers()
         {
             InitializeComponent();
 
-            // Specify the path to your text file
             string filePath = @"D:\Repository\LibraryBookGame\LibraryBookGame\Text\DataCallNumbers.txt";
 
-            // Call the method to read and populate the TreeView
+            definitionListView.Loaded += (sender, e) => definitionListView.SelectionChanged += definitionListView_SelectionChanged;
+
             ReadDataAndPopulateTree(filePath);
 
-            // Flatten the tree structure for display in the ListView
             FlattenTreeForListView(treeNodes);
+            StartQuiz();
         }
 
         private void ReadDataAndPopulateTree(string filePath)
         {
             try
             {
-                // Read all lines from the file
                 var lines = File.ReadAllLines(filePath);
 
-                // Assuming each line in the file represents a node in the tree
                 foreach (var line in lines)
                 {
-                    // Split the line based on some delimiter (e.g., comma) if needed
                     string[] parts = line.Split(',');
 
-                    // Create a tree node
                     TreeNode node = new TreeNode
                     {
-                        Name = parts[0], // Assuming the first part is the node name
-                        // Add additional properties if needed
+                        Name = parts[0],
                     };
 
-                    // Add the node to the list
                     treeNodes.Add(node);
                 }
             }
             catch (Exception ex)
             {
-                // Handle exceptions
                 MessageBox.Show($"Error reading file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -427,126 +67,148 @@ namespace LibraryBookGame.MVVM.View
         {
             foreach (var node in nodes)
             {
-                // Add the current node to the flattened list
                 flattenedList.Add(node.Name);
-
-                // Recursively add child nodes
                 FlattenTreeForListView(node.Children);
             }
         }
 
-        /*private void DisplayFilteredEntries()
-        {
-            // Clear existing items in ListViews
-            wordListView.Items.Clear();
-            definitionListView.Items.Clear();
-
-            // Filter and populate the ListViews
-            foreach (var entry in flattenedList)
-            {
-                if (entry.StartsWith("(3)"))
-                {
-                    // Entry starts with "(3)" - remove numeric prefix and add to wordListView
-                    wordListView.Items.Add(RemoveNumericPrefix(entry));
-                }
-                else
-                {
-                    // Entry doesn't start with "(3)" - add to definitionListView
-                    definitionListView.Items.Add(entry);
-                }
-            }
-        }*/
-
         private void DisplayFilteredEntries()
         {
-            // Clear existing items in ListViews
             wordListView.Items.Clear();
             definitionListView.Items.Clear();
 
-            // Filter and populate the ListViews
             foreach (var entry in flattenedList)
             {
                 if (entry.StartsWith("(3)"))
                 {
-                    // Entry starts with "(3)" - remove numeric prefix and add to wordListView
                     wordListView.Items.Add(RemoveNumericPrefix(entry));
                 }
                 else
                 {
-                    // Entry doesn't start with "(3)" - remove numeric prefix and add to definitionListView
                     definitionListView.Items.Add(RemoveNumericPrefix(entry));
                 }
             }
         }
 
-
-
-
         private string RemoveNumericPrefix(string entry)
         {
-            // Use regular expression to extract numeric prefix and description
             var match = Regex.Match(entry, @"\((\d+)\)\s*(.+)");
 
             if (match.Success)
             {
-                // Extract description and format it
+                string numericPart = match.Groups[1].Value.Trim();
                 string description = match.Groups[2].Value.Trim();
 
                 return $"{description}";
             }
 
-            // Return the entry as is if no match is found
             return entry.Trim();
         }
 
-
-
-
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            // Call the method to display filtered entries in ListViews
+            StartQuiz();
+        }
+
+        private void StartQuiz()
+        {
+            quizOptions.Clear();
+            correctAnswer = string.Empty;
+
             DisplayFilteredEntries();
-            DisplayRandomWordEntry();
+
+            currentQuestion = GetRandomQuestion();
+
+            wordListView.Items.Clear();
+            wordListView.Items.Add(RemoveNumericPrefix(currentQuestion));
+
+            DisplayAnswerOptions(currentQuestion);
+        }
+
+        private string GetRandomQuestion()
+        {
+            var thirdLevelEntries = flattenedList.Where(entry => entry.StartsWith("(3)")).ToList();
+            Random rand = new Random();
+            return thirdLevelEntries[rand.Next(thirdLevelEntries.Count)];
+        }
+
+        private void DisplayAnswerOptions(string currentQuestion)
+        {
+            List<string> options = GetAnswerOptions(currentQuestion);
+
+            definitionListView.Items.Clear();
+            foreach (var option in options.OrderBy(opt => opt))
+            {
+                definitionListView.Items.Add(RemoveNumericPrefix(option));
+            }
+        }
+
+        private List<string> GetAnswerOptions(string currentQuestion)
+        {
+            quizOptions.Clear();
+
+            quizOptions.Add(currentQuestion);
+
+            var random = new Random();
+            var incorrectOptions = flattenedList.Where(entry => entry.StartsWith("(1)")).Except(quizOptions).OrderBy(x => random.Next()).Take(3);
+            quizOptions.AddRange(incorrectOptions);
+
+            quizOptions = quizOptions.OrderBy(x => random.Next()).ToList();
+
+            correctAnswer = currentQuestion;
+
+            return quizOptions;
+        }
+
+        private void OptionSelected(string selectedOption)
+        {
+            string cleanedSelectedOption = RemoveNumericPrefix(selectedOption);
+            string cleanedCorrectAnswer = RemoveNumericPrefix(correctAnswer);
+
+            if (cleanedSelectedOption == cleanedCorrectAnswer)
+            {
+                MessageBox.Show("Correct!");
+
+                if (currentLevel < 3)
+                {
+                    currentLevel++;
+                    currentQuestion = GetRandomQuestion();
+                    wordListView.Items.Clear();
+                    wordListView.Items.Add(RemoveNumericPrefix(currentQuestion));
+                    DisplayAnswerOptions(currentQuestion);
+                }
+                else
+                {
+                    MessageBox.Show("Congratulations! You completed the question.");
+                    StartQuiz();
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Incorrect! The correct answer is: {correctAnswer}. Please try again.");
+            }
+        }
+
+        private void definitionListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (definitionListView.SelectedItem != null)
+            {
+                string selectedOption = definitionListView.SelectedItem.ToString();
+                OptionSelected(selectedOption);
+            }
         }
 
         private void RestartButton_Click(object sender, RoutedEventArgs e)
         {
-            // Your code for restarting the game
+            currentLevel = 1;
+            StartQuiz();
         }
 
         private void HowToPlayButton_Click(object sender, RoutedEventArgs e)
         {
-            // Your code for displaying game instructions
+            MessageBox.Show("How to Play:\nSelect the correct answer to progress through levels and complete the question.");
         }
-
-        private void DisplayRandomWordEntry()
-        {
-            // Clear existing items in wordList
-            wordList.Clear();
-
-            // Filter and populate wordList
-            foreach (var entry in flattenedList)
-            {
-                if (entry.StartsWith("(3)"))
-                {
-                    // Entry starts with "(3)" - add to wordList
-                    wordList.Add(RemoveNumericPrefix(entry));
-                }
-            }
-
-            // Clear existing items in wordListView
-            wordListView.Items.Clear();
-
-            // Display a random entry from wordList if there are any
-            if (wordList.Count > 0)
-            {
-                Random random = new Random();
-                int randomIndex = random.Next(wordList.Count);
-
-                wordListView.Items.Add(wordList[randomIndex]);
-            }
-        }
-
-        // Your other methods and event handlers go here
     }
 }
+
+
