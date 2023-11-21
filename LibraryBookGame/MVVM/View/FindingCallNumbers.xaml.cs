@@ -41,7 +41,9 @@ namespace LibraryBookGame.MVVM.View
         {
             InitializeComponent();
 
-            string filePath = @"D:\Repository\LibraryBookGame\LibraryBookGame\Text\DataCallNumbers.txt";
+
+            //Change to Your File Path if you are getting an error stating: System.InvalidOperationException: 'Dispatcher processing has been suspended, but messages are still being processed.'
+            string filePath = @"D:\Repository\ST10238118_Prog7312_Poe_Part_3\LibraryBookGame\LibraryBookGame\Text\DataCallNumbers.txt"; //INSERT YOUR FILE PATH HERE IF AN ERROR IS BEING THROWN :-(
 
             definitionListView.Loaded += (sender, e) => definitionListView.SelectionChanged += definitionListView_SelectionChanged;
 

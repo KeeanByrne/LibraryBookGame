@@ -9,7 +9,13 @@
 																										 ST10238118
 																										  Prog7312
 Link for GitHub Repository: https://github.com/KeeanByrne/LibraryBookGame
-		
+
+Change to Your File Path if you are getting an error stating: System.InvalidOperationException: 'Dispatcher processing has been suspended, but messages are still being processed.'
+>>  string filePath = @"D:\Reository\ST10238118_Prog7312_Poe_Part_3\LibraryBookGame\LibraryBookGame\Text\DataCallNumbers.txt";
+
+To get your own file path, locate the Text Folder. Right click on DataCallNumbers.txt and select copy full path and replace it 
+within the string filePath = @"INSERT YOUR FILE PATH HERE";
+
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//		
 				On startup, the application allows the user to choose between three tasks:
 				a. Replacing books.
