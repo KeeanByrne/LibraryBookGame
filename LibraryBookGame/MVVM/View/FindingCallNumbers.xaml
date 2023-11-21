@@ -20,7 +20,6 @@
                 BorderThickness="5"
                 BorderBrush="Black">
 
-
             <Grid>
                 <StackPanel>
                     <Grid>
@@ -38,19 +37,14 @@
                         <Label Name="Answer" Content="Answer" Margin="476,43,138,311" Width="60"/>
                         <ListBox x:Name="wordListView" Height="240" Background="Aquamarine" BorderBrush="Black" BorderThickness="2" Margin="147,68,310,70" />
 
-                        <Label Name="Question" Content="Question" Margin="220,43,394,311" Width="60"/>
+                        <Label Name="lbQuestion"  Margin="220,43,394,311" Width="60"/>
                         <ListBox x:Name="definitionListView" Height="240" Margin="394,69,55,69" Background="Aquamarine" BorderBrush="Black" BorderThickness="2" />
 
                         <!--Timer for Replacing Books-->
                         <TextBlock Text="Time Left:" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="194,323,0,0" />
                         <Label x:Name="timerLabel" Content="30" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Height="32" Margin="284,318,0,0"/>
 
-
-
                     </Grid>
-
-
-
                 </StackPanel>
             </Grid>
         </Border>

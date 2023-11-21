@@ -63,7 +63,7 @@
                              Foreground="White"
                              FontSize="14" 
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding FindingCallNumbersCommand}"/>
+                             Command="{Binding FindingCallNumbersCommand}" Checked="RadioButton_Checked"/>
 
                 <Button x:Name="CloseButton"
                         Content="Close"

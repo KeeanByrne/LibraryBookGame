@@ -210,5 +210,3 @@ namespace LibraryBookGame.MVVM.View
         }
     }
 }
-
-
