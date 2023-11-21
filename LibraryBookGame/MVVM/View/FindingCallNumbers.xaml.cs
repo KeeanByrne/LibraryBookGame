@@ -48,7 +48,7 @@ namespace LibraryBookGame.MVVM.View
             ReadDataAndPopulateTree(filePath);
 
             FlattenTreeForListView(treeNodes);
-            StartQuiz();
+            
 
             InitializeTimer();
         }
@@ -282,8 +282,24 @@ namespace LibraryBookGame.MVVM.View
 
         private void RestartButton_Click(object sender, RoutedEventArgs e)
         {
-            currentLevel = 1;
-            StartQuiz();
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to restart?", "Restart Game", MessageBoxButton.YesNo);
+
+            // If Yes selected then both ListBoxes are cleared. If No is selected, nothing is cleared from either ListBox.
+
+            if (result == MessageBoxResult.Yes)
+            {
+                currentLevel = 1;
+
+                //Restarts Countdown from 30 seconds
+                RestartTimer();
+
+                // Enables/Disables the Restart and Start buttons
+                StartQuiz();
+
+                // Resets the score to 0 and updates the score label
+                score = 0;
+                ScoreLabel.Content = "Score: " + score;
+            }
         }
 
         private void HowToPlayButton_Click(object sender, RoutedEventArgs e)
