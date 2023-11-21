@@ -154,6 +154,8 @@ namespace LibraryBookGame.MVVM.View
             }
         }
 
+
+        //Chat-GPT helped me remove the prefix ( (1) / (2) / (3) from the beginning of each data entry when being displayed
         private string RemoveNumericPrefix(string entry)
         {
             var match = Regex.Match(entry, @"\((\d+)\)\s*(.+)");
@@ -294,7 +296,8 @@ namespace LibraryBookGame.MVVM.View
                 RestartTimer();
 
                 // Enables/Disables the Restart and Start buttons
-                StartQuiz();
+                RestartButton.IsEnabled = true;
+                StartButton.IsEnabled = true;
 
                 // Resets the score to 0 and updates the score label
                 score = 0;

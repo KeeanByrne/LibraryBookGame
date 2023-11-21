@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryBookGame.Tree
 {
+    //Chat-GPT helped me here 
     class TreeNodeConfig<String>
     {
         public string Data { get; set; }
