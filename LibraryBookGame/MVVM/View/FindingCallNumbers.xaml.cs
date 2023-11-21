@@ -5,19 +5,31 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Threading;
 
 namespace LibraryBookGame.MVVM.View
 {
     public partial class FindingCallNumbers : UserControl
     {
-        private List<string> wordList = new List<string>();
+        //----------------------------------------Declarations----------------------------------------//
         private List<TreeNode> treeNodes = new List<TreeNode>();
         private List<string> flattenedList = new List<string>();
         private List<string> quizOptions = new List<string>();
         private string correctAnswer;
 
-        private int currentLevel = 1; // Starting level
+        // Starting level
+        private int currentLevel = 1;
         private string currentQuestion;
+
+        // Initialize the score variable
+        private int score = 0; 
+
+
+        //Variables for the timer
+        private int remainingSeconds = 30;
+        private DispatcherTimer timer;
+
+        //----------------------------------------Declarations----------------------------------------//
 
         public class TreeNode
         {
@@ -37,8 +49,55 @@ namespace LibraryBookGame.MVVM.View
 
             FlattenTreeForListView(treeNodes);
             StartQuiz();
+
+            InitializeTimer();
         }
 
+        //----------------------------------------Timer Methods----------------------------------------//
+
+        private void InitializeTimer()
+        {
+            timer = new DispatcherTimer(DispatcherPriority.Normal);
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += Timer_Tick;
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (remainingSeconds > 0)
+            {
+                remainingSeconds--;
+                timerLabel.Content = remainingSeconds.ToString();
+            }
+            else
+            {
+                timer.Stop();
+                MessageBox.Show("Oh no! Your time has run out. Your score is " + score);
+
+                RestartTimer();
+
+            }
+        }
+
+        private void RestartTimer()
+        {
+
+            if (timer.IsEnabled)
+            {
+                timer.Stop();
+            }
+            remainingSeconds = 30;
+            timerLabel.Content = remainingSeconds.ToString();
+        }
+
+
+        //----------------------------------------Timer Methods----------------------------------------//
+
+
+
+
+
+        //----------------------------------------Tree----------------------------------------//
         private void ReadDataAndPopulateTree(string filePath)
         {
             try
@@ -72,6 +131,11 @@ namespace LibraryBookGame.MVVM.View
             }
         }
 
+        //----------------------------------------Tree----------------------------------------//
+
+
+        //----------------------------------------Displaying Call Numbers----------------------------------------//
+
         private void DisplayFilteredEntries()
         {
             wordListView.Items.Clear();
@@ -96,33 +160,13 @@ namespace LibraryBookGame.MVVM.View
 
             if (match.Success)
             {
-                string numericPart = match.Groups[1].Value.Trim();
+                string numericPart = match.Groups[3].Value.Trim();
                 string description = match.Groups[2].Value.Trim();
 
                 return $"{description}";
             }
 
             return entry.Trim();
-        }
-
-        private void StartButton_Click(object sender, RoutedEventArgs e)
-        {
-            StartQuiz();
-        }
-
-        private void StartQuiz()
-        {
-            quizOptions.Clear();
-            correctAnswer = string.Empty;
-
-            DisplayFilteredEntries();
-
-            currentQuestion = GetRandomQuestion();
-
-            wordListView.Items.Clear();
-            wordListView.Items.Add(RemoveNumericPrefix(currentQuestion));
-
-            DisplayAnswerOptions(currentQuestion);
         }
 
         private string GetRandomQuestion()
@@ -168,6 +212,8 @@ namespace LibraryBookGame.MVVM.View
             if (cleanedSelectedOption == cleanedCorrectAnswer)
             {
                 MessageBox.Show("Correct!");
+                score += 5;
+                ScoreLabel.Content = "Score: " + score;
 
                 if (currentLevel < 3)
                 {
@@ -186,6 +232,8 @@ namespace LibraryBookGame.MVVM.View
             else
             {
                 MessageBox.Show($"Incorrect! The correct answer is: {correctAnswer}. Please try again.");
+                score -= 10;
+                ScoreLabel.Content = "Score: " + score;
             }
         }
 
@@ -198,6 +246,40 @@ namespace LibraryBookGame.MVVM.View
             }
         }
 
+        //----------------------------------------Displaying Call Numbers----------------------------------------//
+
+
+
+
+        //----------------------------------------Buttons----------------------------------------//
+        private void StartButton_Click(object sender, RoutedEventArgs e)
+        {
+            StartQuiz();
+
+            //Starts Timer
+            timer.Start();
+
+            score = 0;
+            ScoreLabel.Content = "Score: " + score;
+        }
+
+        private void StartQuiz()
+        {
+            quizOptions.Clear();
+            correctAnswer = string.Empty;
+
+            DisplayFilteredEntries();
+
+            currentQuestion = GetRandomQuestion();
+
+            wordListView.Items.Clear();
+            wordListView.Items.Add(RemoveNumericPrefix(currentQuestion));
+
+            DisplayAnswerOptions(currentQuestion);
+        }
+
+        
+
         private void RestartButton_Click(object sender, RoutedEventArgs e)
         {
             currentLevel = 1;
@@ -206,7 +288,11 @@ namespace LibraryBookGame.MVVM.View
 
         private void HowToPlayButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("How to Play:\nSelect the correct answer to progress through levels and complete the question.");
+            MessageBox.Show("How to Play:\nSelect the correct 3rd level call number to progress through levels and complete the question.");
         }
+
+        //----------------------------------------Buttons----------------------------------------//
     }
 }
+
+
